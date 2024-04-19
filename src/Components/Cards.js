@@ -22,10 +22,22 @@ function Cards() {
       { id: 7, name: "Sandor Clegane", status: "", img: "/images/08.jpg" },
     ].sort(() => Math.random() - 0.5)
   );
+
+  const clickHandler = (index) => {
+    alert(index);
+  };
+
   return (
     <div className="container">
       {cards.map((card, index) => {
-        return <Card card={card} />;
+        return (
+          <Card
+            card={card}
+            key={index}
+            index={index}
+            clickHandler={clickHandler}
+          />
+        );
       })}
     </div>
   );
